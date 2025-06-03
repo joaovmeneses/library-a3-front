@@ -86,15 +86,15 @@
         {
           if (data.role === 'STUDENT')
           {
-            window.location.href = 'student/home';
+            window.location.href = '/pages/student/home';
             localStorage.setItem('token', data.token);
-          }
-          if (data.role === 'EMPLOYEE')
+          } else if (data.role === 'EMPLOYEE')
           {
-            window.location.href = 'employee/book';
+            window.location.href = '/pages/employee/book';
             localStorage.setItem('token', data.token);
+          } else {
+            alert('Wrong email or password');
           }
-          alert('Wrong email or password');
         } else
         {
           alert('Login failed: ' + data.message);
