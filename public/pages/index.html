@@ -75,9 +75,10 @@
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
-      body: JSON.stringify({ email, pass: password })
+      body: JSON.stringify()
     })
       .then(response => response.json())
       .then(data =>
@@ -92,7 +93,8 @@
           {
             window.location.href = '/pages/employee/book';
             localStorage.setItem('token', data.token);
-          } else {
+          } else
+          {
             alert('Wrong email or password');
           }
         } else
