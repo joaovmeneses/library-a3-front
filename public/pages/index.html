@@ -70,15 +70,14 @@
     const password = document.getElementById('passwordInput').value;
     console.log('Email:', { email, pass: password });
 
-    fetch('https://library-a3-production.up.railway.app/credentials/login', {
+    fetch('http://localhost:8080/credentials/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*',
-        'Authorization': 'Bearer ' + localStorage.getItem('token')
       },
-      body: JSON.stringify()
+      body: JSON.stringify({ email: email, pass: password })
     })
       .then(response => response.json())
       .then(data =>
