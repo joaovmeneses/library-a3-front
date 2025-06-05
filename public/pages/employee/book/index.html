@@ -52,102 +52,14 @@
 
       <div class="card">
         <div class="card-header text-center fw-bold">Livros Cadastrados</div>
-        <div class="card-body">
-          <div class="row g-3" id="booksRow">
-
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h5 class="card-title">A Biblioteca da Meia-Noite</h5>
-                  <p class="card-subtitle mb-2 text-muted">Science fiction</p>
-                  <p class="card-text">Matt Haig</p>
-                  <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                      data-bs-target="#returnModal">
-                      Devolver Livro
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div id="bookList" class="row mt-3">
+          <div class="card-body">
+            <div class="row g-3" id="booksRow">
 
 
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -182,6 +94,8 @@
 <script>
   loadMenu('books');
   loadFooter();
+  loadBooks();
+
 
   document.getElementById("bookForm").addEventListener("submit", async function (event) {
 
@@ -210,17 +124,65 @@
         body: JSON.stringify(newBook)
       });
 
-      if(cadastrar.ok){
-        console.log("Livro registrado com sucesso! "+ newBook);
+      if (cadastrar.ok) {
+        console.log("Livro registrado com sucesso! " + newBook);
         window.location.reload();
-      }else{
+      } else {
         console.log("Erro ao cadastrar livro!");
       }
     } catch (error) {
-      console.error("Erro na requisição! Detalhes: "+ error.msg);
+      console.error("Erro na requisição! Detalhes: " + error.msg);
     }
 
 
   });
+
+  async function loadBooks() {
+    try {
+      const response = await fetch("https://library-a3-production.up.railway.app/books", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao buscar livros: " + response.status);
+      }
+
+      const livros = await response.json();
+
+      const listaLivros = document.getElementById("bookList");
+      listaLivros.innerHTML = "";
+
+      livros.forEach(livro => {
+        const cardLivro = `
+          <div class="col-md-4">
+                <div class="card h-100">
+                  <div class="card-body">
+                    <h5 class="card-title">${livro.title}</h5>
+                    <p class="card-subtitle mb-2 text-muted">${livro.author}</p>
+                    <p class="card-text">${livro.category}</p>
+                    <div class="d-flex justify-content-end">
+                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+                        data-bs-target="#returnModal">
+                        Devolver Livro
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        `;
+        listaLivros.innerHTML += cardLivro;
+      });
+    } catch (error) {
+      console.error("Erro ao carregar livros: ", error)
+    }
+  };
+
+  
 
 </script>
