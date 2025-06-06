@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-bs-theme="custom ">
+<html lang="pt-br" >
 
 <head>
   <meta charset="UTF-8" />
@@ -52,6 +52,10 @@
 
       <div class="card">
         <div class="card-header text-center fw-bold">Livros Cadastrados</div>
+
+        
+
+
         <div id="bookList" class="row mt-3">
           <div class="card-body">
             <div class="row g-3" id="booksRow">
@@ -160,21 +164,21 @@
 
       livros.forEach(livro => {
         const cardLivro = `
-          <div class="col-md-4 p-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title">${livro.title}</h5>
-                    <p class="card-subtitle mb-2 text-muted">${livro.author}</p>
-                    <p class="card-text">${livro.category}</p>
-                    <div class="d-flex justify-content-end">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="col-md-4 p-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">${livro.title}</h5>
+              <p class="card-text mb-1" style="font-size:.85rem">
+                <span class="fw-medium text-muted">Autor: </span> 
+                <span class="ms-1">${livro.author}</span>
+              </p>
+              <p class="card-text mb-1" style="font-size:.85rem">
+                <span class="fw-medium text-muted">Categoria: </span> 
+                <span class="ms-1">${livro.category}</span>
+              </p>
+            </div>
+          </div>
+        </div>
         `;
         listaLivros.innerHTML += cardLivro;
       });
@@ -186,3 +190,20 @@
   
 
 </script>
+
+
+<!-- <div class="col-md-4 p-4">
+  <div class="card shadow-sm h-100">
+    <div class="card-body">
+      <h5 class="card-title">${livro.title}</h5>
+      <p class="card-subtitle mb-2 text-muted">${livro.author}</p>
+      <p class="card-text">${livro.category}</p>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+          data-bs-target="#returnModal">
+          Devolver Livro
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
