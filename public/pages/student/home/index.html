@@ -2,108 +2,78 @@
 <html lang="pt-br" data-bs-theme="custom ">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Student homepage</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Student homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container" id="menu"></div>
-  <main>
+<div class="container" id="menu"></div>
+<main>
 
     <nav class="bg-body-tertiary">
     </nav>
 
     <div class="container py-5">
 
-      <div class="card mb-4">
-        <div class="card">
-          <div class="card-header text-center fw-bold">My Books</div>
-          <div class="card-body">
-            <div class="row g-3" id="booksRow">
+        <div class="card mb-4">
+            <div class="card">
+                <div class="card-header text-center fw-bold">My Books</div>
+                <div class="card-body">
+                    <div class="row g-3" id="booksRow">
 
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">O poder do hábito</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Charles Duhigg</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">01/01/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">01/02/2025</span></p>
-                  </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Neuromancer: 1</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">William Gibson</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">10/11/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">10/12/2025</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Periféricos</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">William Gibson</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">25/05/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">25/06/2025</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Relatos de um gato viajante</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Hiro Arikawa</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">11/03/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">18/03/2025</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">A arte da guerra</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Sun Tzu</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">10/10/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">10/11/2025</span></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Como Perder Amigos e Irritar Pessoas</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Irving D. Tressler</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span> <span id="bookStatus" class="ms-1">Available</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">11/10/2025</span></p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span> <span id="exitDate" class="ms-1">10/11/2025</span></p>
-                  </div>
-                </div>
-              </div>
-
-            
-
-            
-
             </div>
-          </div>
-        </div>
-  </main>
-  </div>
+</main>
+</div>
+<script>
+    function addBookCard(borrows) {
+        for (let i = 0; i < borrows.length; i++) {
+        const templateCard =
+        `<div class="col-md-4">
+                <div class="card shadow-sm h-100">
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">${borrows[i].bookId}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${borrows[i].bookId}</h6>
+                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span>
+                      <span id="bookStatus" class="ms-1">${borrows[i].status}</span></p>
+                    <p class="card-text mb-1" style="font-size:.85rem"><span
+                        class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">${borrows[i].createdAt}</span>
+                    </p>
+                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span>
+                      <span id="exitDate" class="ms-1">${borrows[i].deletedAt}</span></p>
+                  </div>
+                </div>
+              </div>`;
+            document.getElementById("booksRow").innerHTML += templateCard;
+        }
+    }
+    
+
+    async function newStudentCard() {
+        const response = await fetch("https://library-a3-production.up.railway.app/borrows", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        });
+        if (!response.ok) {
+//        alert("Erro ao buscar informações");
+            console.error("Failed to fetch books:", response.statusText);
+            return;
+        }
+        const borrows = await response.json();
+
+        addBookCard(borrows);
+    }
+
+    newStudentCard();
+</script>
 
 </body>
 <div id="footer"></div>
@@ -113,8 +83,10 @@
 
 
 <script src="/scripts/layout.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
 <script>
-  loadMenu('students');
-  loadFooter();
+    loadMenu('students');
+    loadFooter();
 </script>
