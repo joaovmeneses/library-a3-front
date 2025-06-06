@@ -95,6 +95,7 @@
   loadMenu('books');
   loadFooter();
   loadBooks();
+  verificarAutenticacao();
 
 
   document.getElementById("bookForm").addEventListener("submit", async function (event) {
@@ -160,8 +161,8 @@
 
       livros.forEach(livro => {
         const cardLivro = `
-          <div class="col-md-4">
-                <div class="card h-100">
+          <div class="col-md-4 p-4">
+                <div class="card shadow-sm h-100">
                   <div class="card-body">
                     <h5 class="card-title">${livro.title}</h5>
                     <p class="card-subtitle mb-2 text-muted">${livro.author}</p>

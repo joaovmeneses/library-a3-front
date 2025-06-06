@@ -32,18 +32,20 @@
     function addBookCard(borrows) {
         for (let i = 0; i < borrows.length; i++) {
         const templateCard =
-        `<div class="col-md-4">
+        `<div class="col-md-4 p-4">
                 <div class="card shadow-sm h-100">
                   <div class="card-body">
-                    <h5 class="card-title fw-bold">${borrows[i].bookId}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">${borrows[i].bookId}</h6>
+                    <h5 class="card-title fw-bold">${borrows[i].book.title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${borrows[i].book.author}</h6>
+                    <p class="card-text mb-1" style="font-size:.75rem"><span class="fw-medium text-muted">Category:</span>
+                      <span id="bookStatus" class="ms-1 small">${borrows[i].book.category}</span></p>
                     <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span>
-                      <span id="bookStatus" class="ms-1">${borrows[i].status}</span></p>
+                      <span id="bookStatus" class="ms-1">${borrows[i].book.status}</span></p>
                     <p class="card-text mb-1" style="font-size:.85rem"><span
-                        class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">${borrows[i].createdAt}</span>
+                        class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">${borrows[i].book.createdAt}</span>
                     </p>
                     <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span>
-                      <span id="exitDate" class="ms-1">${borrows[i].deletedAt}</span></p>
+                      <span id="exitDate" class="ms-1">${borrows[i].book.deletedAt}</span></p>
                   </div>
                 </div>
               </div>`;
@@ -63,7 +65,7 @@
             }
         });
         if (!response.ok) {
-//        alert("Erro ao buscar informações");
+        alert("Erro ao buscar informações");
             console.error("Failed to fetch books:", response.statusText);
             return;
         }
@@ -87,6 +89,7 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 <script>
-    loadMenu('students');
+    loadMenu('student-home');
     loadFooter();
+    verificarAutenticacao();
 </script>

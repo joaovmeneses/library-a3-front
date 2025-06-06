@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,53 +7,51 @@
   <title>Document</title>
 </head>
 <body>
+    <div class="container" id="menu"></div>
     <main>
         <div class="container py-5">
 
             <div class="card mb-4">
 
-                <div class="card-header text-center fw-bold">Student Registration</div>
+                <div class="card-header text-center fw-bold">Registrar Alunos</div>
 
                 <div class="card-body">
                     <form>
                         <div class="row g-3">
 
                             <div class="col-md-5">
-                                <label for="title" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter your name"
+                                <label for="title" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="title" placeholder="Insira seu nome"
                                     required>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="title" class="form-label">CPF</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter your CPF"
+                                <input type="text" class="form-control" id="title" placeholder="Insira seu CPF"
                                     required>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="title" class="form-label">Phone</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter your phone number"
+                                <label for="title" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="title" placeholder="Insirea seu telefone"
                                     required>
                             </div>
 
                             <div class="col-md-5">
                                 <label for="title" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="title" placeholder="Enter your email"
+                                <input type="email" class="form-control" id="title" placeholder="Insira seu email"
                                     required>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="title" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="title" placeholder="Enter your password"
+                                <label for="title" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="title" placeholder="Insira sua senha"
                                     required>
                             </div>
-
-                            
-
                             
                         </div>
                         <div class="text-end mt-4">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn btn-primary">Registrar</button>
                         </div>
                     </form>
                 </div>
@@ -61,12 +59,12 @@
 
 
             <div class="card">
-                <div class="card-header text-center fw-bold">List of Students</div>
+                <div class="card-header text-center fw-bold">Lista de Alunos</div>
                 <div class="card-body">
                     <div class="row g-3" id="booksRow">
 
                         <div class="col-md-4">
-                            <div class="card h-100">
+                            <div class="card shadow-sm h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">José da Silva Pereira</h5>
                                     <p class="card-subtitle mb-2 text-muted">555.666.777-88</p>
@@ -78,68 +76,11 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Lercio Desenvolvedor de Software</h6>
-                                    <p class="card-subtitle mb-2 text-muted">111.222.333-44</p>
-                                    <p class="card-subtitle mb-2 text-muted">8493333-3333</p>
-                                    <p class="card-subtitle mb-2 text-muted">lerciodev@email.com</p>
-                                    
-                                    <h6 class="card-text">Employee</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">José da Silva Pereira</h5>
-                                    <p class="card-subtitle mb-2 text-muted">555.666.777-88</p>
-                                    <p class="card-subtitle mb-2 text-muted">8499999-9999</p>
-                                    <p class="card-subtitle mb-2 text-muted">jose@email.com</p>
-                                    
-                                    <h6 class="card-text">Employee</h6>
-                                </div>
-                            </div>
-                        </div>
+                        
+                        
 
-                        <div class="col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Lercio Desenvolvedor de Software</h6>
-                                    <p class="card-subtitle mb-2 text-muted">111.222.333-44</p>
-                                    <p class="card-subtitle mb-2 text-muted">8493333-3333</p>
-                                    <p class="card-subtitle mb-2 text-muted">lerciodev@email.com</p>
-                                    
-                                    <h6 class="card-text">Employee</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">José da Silva Pereira</h5>
-                                    <p class="card-subtitle mb-2 text-muted">555.666.777-88</p>
-                                    <p class="card-subtitle mb-2 text-muted">8499999-9999</p>
-                                    <p class="card-subtitle mb-2 text-muted">jose@email.com</p>
-                                    
-                                    <h6 class="card-text">Employee</h6>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h6 class="card-title">Lercio Desenvolvedor de Software</h6>
-                                    <p class="card-subtitle mb-2 text-muted">111.222.333-44</p>
-                                    <p class="card-subtitle mb-2 text-muted">8493333-3333</p>
-                                    <p class="card-subtitle mb-2 text-muted">lerciodev@email.com</p>
-                                    
-                                    <h6 class="card-text">Employee</h6>
-                                </div>
-                            </div>
-                        </div>
+                        
+                      
 
                         
 
@@ -150,11 +91,13 @@
     </main>
 
 </body>
+<div id="footer"></div>
 </html>
 
 <script src="/scripts/layout.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 <script>
-  loadMenu();
+  loadMenu('students');
   loadFooter();
+  verificarAutenticacao();
 </script>
