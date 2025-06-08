@@ -28,6 +28,8 @@ function loadMenu(page) {
         case 'borrows':
           document.getElementById('menuHomeBtn').classList.add('active');
           break;
+        case 'student-home':
+          document.getElementById('nav-menu').setAttribute('hidden', true)
         default:
           console.warn("Unknown page:", page);
       }
@@ -41,4 +43,12 @@ function loadMenu(page) {
 function logout() {
   localStorage.clear();
   window.location.href = "/pages";
+}
+
+function verificarAutenticacao() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert("Você não está autenticado!");
+    window.location.href = "/pages";
+  }
 }
