@@ -1,4 +1,4 @@
-function loadFooter() { 
+function loadFooter() {
   fetch('../../../layout/footer.html')
     .then(response => response.text())
     .then(html => {
@@ -9,7 +9,8 @@ function loadFooter() {
     });
 }
 
-function loadMenu(page) { 
+
+function loadMenu(page) {
   fetch('../../../layout/menu.html')
     .then(response => response.text())
     .then(html => {
@@ -35,4 +36,9 @@ function loadMenu(page) {
     .catch(err => {
       console.error("Error while load menu:", err);
     });
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "/pages";
 }
