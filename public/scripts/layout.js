@@ -1,4 +1,4 @@
-function loadFooter() { 
+function loadFooter() {
   fetch('../../../layout/footer.html')
     .then(response => response.text())
     .then(html => {
@@ -9,7 +9,8 @@ function loadFooter() {
     });
 }
 
-function loadMenu(page) { 
+
+function loadMenu(page) {
   fetch('../../../layout/menu.html')
     .then(response => response.text())
     .then(html => {
@@ -39,10 +40,15 @@ function loadMenu(page) {
     });
 }
 
+function logout() {
+  localStorage.clear();
+  window.location.href = "/pages";
+}
+
 function verificarAutenticacao() {
   const token = localStorage.getItem('token');
   if (!token) {
     alert("Você não está autenticado!");
-    window.location.href = "/index.html";
+    window.location.href = "/pages";
   }
 }
