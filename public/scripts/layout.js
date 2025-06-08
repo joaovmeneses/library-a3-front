@@ -1,4 +1,4 @@
-function loadFooter() { 
+function loadFooter() {
   fetch('../../../layout/footer.html')
     .then(response => response.text())
     .then(html => {
@@ -9,7 +9,8 @@ function loadFooter() {
     });
 }
 
-function loadMenu(page) { 
+
+function loadMenu(page) {
   fetch('../../../layout/menu.html')
     .then(response => response.text())
     .then(html => {
@@ -27,6 +28,8 @@ function loadMenu(page) {
         case 'borrows':
           document.getElementById('menuHomeBtn').classList.add('active');
           break;
+        case 'student-home':
+          document.getElementById('nav-menu').setAttribute('hidden', true)
         default:
           console.warn("Unknown page:", page);
       }
@@ -35,4 +38,17 @@ function loadMenu(page) {
     .catch(err => {
       console.error("Error while load menu:", err);
     });
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "/pages";
+}
+
+function verificarAutenticacao() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    alert("Você não está autenticado!");
+    window.location.href = "/pages";
+  }
 }
