@@ -19,238 +19,138 @@
 
       <!-- Formulário de Empréstimo -->
       <div class="card mb-4">
-        <div class="card">
-          <div class="card-header text-center fw-bold">Registrar Empréstimo</div>
-          <div class="card-body">
-            <form id="emprestimoForm">
-              <div class="row g-3">
+        <div class="card-header text-center fw-bold">Registrar Empréstimo</div>
+        <div class="card-body">
+          <form id="emprestimoForm">
+            <div class="row g-3">
 
-                <div class="col-md-4">
-                  <label for="selectLivro" class="form-label">Livro</label>
-                  <select class="form-select" id="selectLivro" required>
-                    <option value="">Selecione um livro</option>
-                    <option value="1">A Biblioteca da Meia-Noite - Matt Haig</option>
-                    <option value="2">Como se tornar um cristão inútil - Rodrigo Bibo</option>
-                    <option value="3">Box Jurassic Park - Michael Crichton</option>
-                    <option value="4">O poder do hábito - Charles Duhigg</option>
-                    <option value="5">Neuromancer: 1 - William Gibson</option>
-                    <option value="6">Periféricos - William Gibson</option>
-                    <option value="7">Relatos de um gato viajante - Hiro Arikawa</option>
-                    <option value="8">A arte da guerra - Sun Tzu</option>
-                    <option value="9">Como Perder Amigos e Irritar Pessoas - Irving D. Tressler</option>
-                  </select>
-                </div>
-
-                <div class="col-md-4">
-                  <label for="selectAluno" class="form-label">Aluno</label>
-                  <select class="form-select" id="selectAluno" required>
-                    <option value="">Selecione um aluno</option>
-                    <option value="1">João Silva - 2023001</option>
-                    <option value="2">Maria Santos - 2023002</option>
-                    <option value="3">Pedro Oliveira - 2023003</option>
-                    <option value="4">Ana Costa - 2023004</option>
-                    <option value="5">Carlos Ferreira - 2023005</option>
-                    <option value="6">Beatriz Lima - 2023006</option>
-                    <option value="7">Rafael Souza - 2023007</option>
-                    <option value="8">Juliana Rocha - 2023008</option>
-                  </select>
-                </div>
-
-                <div class="col-md-4">
-                  <label for="dataDevolucao" class="form-label">Data de Devolução</label>
-                  <input type="date" class="form-control" id="dataDevolucao" required>
-                </div>
-
+              <div class="col-md-4">
+                <label for="selectLivro" class="form-label">Livro</label>
+                <select class="form-select" id="selectLivro" required>
+                  <option value="">Selecione um livro</option>
+                  <option value="1">A Biblioteca da Meia-Noite - Matt Haig</option>
+                  <option value="2">Como se tornar um cristão inútil - Rodrigo Bibo</option>
+                  <option value="3">Box Jurassic Park - Michael Crichton</option>
+                  <option value="4">O poder do hábito - Charles Duhigg</option>
+                  <option value="5">Neuromancer: 1 - William Gibson</option>
+                  <option value="6">Periféricos - William Gibson</option>
+                  <option value="7">Relatos de um gato viajante - Hiro Arikawa</option>
+                  <option value="8">A arte da guerra - Sun Tzu</option>
+                  <option value="9">Como Perder Amigos e Irritar Pessoas - Irving D. Tressler</option>
+                </select>
               </div>
 
-              <div class="row mt-3">
-                <div class="text-end mt-4">
-                  <button type="submit" class="btn btn-primary">Registrar Empréstimo</button>
-                </div>
+              <div class="col-md-4">
+                <label for="selectAluno" class="form-label">Aluno</label>
+                <select class="form-select" id="selectAluno" required>
+                  <option value="">Selecione um aluno</option>
+                  <option value="1">João Silva - 2023001</option>
+                  <option value="2">Maria Santos - 2023002</option>
+                  <option value="3">Pedro Oliveira - 2023003</option>
+                  <option value="4">Ana Costa - 2023004</option>
+                  <option value="5">Carlos Ferreira - 2023005</option>
+                  <option value="6">Beatriz Lima - 2023006</option>
+                  <option value="7">Rafael Souza - 2023007</option>
+                  <option value="8">Juliana Rocha - 2023008</option>
+                </select>
               </div>
-            </form>
-          </div>
+
+              <div class="col-md-4">
+                <label for="dataDevolucao" class="form-label">Data de Devolução</label>
+                <input type="date" class="form-control" id="dataDevolucao" required>
+              </div>
+
+            </div>
+
+            <div class="row mt-3">
+              <div class="text-end mt-4">
+                <button type="submit" class="btn btn-primary">Registrar Empréstimo</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
       <!-- Lista de Empréstimos -->
       <div class="card mb-4">
-        <div class="card">
-          <div class="card-header text-center fw-bold">Empréstimos Ativos</div>
-          <div class="card-body">
-            <div class="row g-3" id="emprestimosRow">
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">O poder do hábito</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Charles Duhigg</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Aluno:</span>
-                      <span class="ms-1">João Silva (2023001)</span>
-                    </p>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Empréstimo:</span>
-                      <span class="ms-1">15/05/2024</span>
-                    </p>
-                    <p class="card-text mb-2" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Devolução:</span>
-                      <span class="ms-1">29/05/2024</span>
-                    </p>
-                    <div class="d-flex justify-content-end gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Neuromancer: 1</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">William Gibson</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Aluno:</span>
-                      <span class="ms-1">Maria Santos (2023002)</span>
-                    </p>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Empréstimo:</span>
-                      <span class="ms-1">18/05/2024</span>
-                    </p>
-                    <p class="card-text mb-2" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Devolução:</span>
-                      <span class="ms-1 fw-bold">01/06/2024 (Atrasado)</span>
-                    </p>
-                    <div class="d-flex justify-content-end gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">A arte da guerra</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Sun Tzu</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Aluno:</span>
-                      <span class="ms-1">Pedro Oliveira (2023003)</span>
-                    </p>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Empréstimo:</span>
-                      <span class="ms-1">22/05/2024</span>
-                    </p>
-                    <p class="card-text mb-2" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Devolução:</span>
-                      <span class="ms-1">05/06/2024</span>
-                    </p>
-                    <div class="d-flex justify-content-end gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Box Jurassic Park</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Michael Crichton</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Aluno:</span>
-                      <span class="ms-1">Ana Costa (2023004)</span>
-                    </p>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Empréstimo:</span>
-                      <span class="ms-1">25/05/2024</span>
-                    </p>
-                    <p class="card-text mb-2" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Devolução:</span>
-                      <span class="ms-1">08/06/2024</span>
-                    </p>
-                    <div class="d-flex justify-content-end gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-4">
-                <div class="card shadow-sm h-100">
-                  <div class="card-body">
-                    <h5 class="card-title fw-bold">Relatos de um gato viajante</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Hiro Arikawa</h6>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Aluno:</span>
-                      <span class="ms-1">Carlos Ferreira (2023005)</span>
-                    </p>
-                    <p class="card-text mb-1" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Empréstimo:</span>
-                      <span class="ms-1">28/05/2024</span>
-                    </p>
-                    <p class="card-text mb-2" style="font-size:.85rem">
-                      <span class="fw-medium text-muted">Devolução:</span>
-                      <span class="ms-1">11/06/2024</span>
-                    </p>
-                    <div class="d-flex justify-content-end gap-2">
-                      <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
-                        data-bs-target="#returnModal">
-                        Devolver Livro
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+        <div class="card-header text-center fw-bold">Empréstimos Ativos</div>
+        <div class="card-body">
+          <div class="row g-3" id="emprestimosRow">
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="returnModal" tabindex="-1" aria-labelledby="returnModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="returnModalLabel">Confirmar devolução</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-            </div>
-            <div class="modal-body">
-              Deseja devolver o livro ?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary">Confirmar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="footer"></div>
 
-    </div>
   </main>
+  <script>
+    function addBookCard(borrows) {
+      for (let i = 0; i < borrows.length; i++) {
+        const templateCard =
+          `
+            <div class="col-md-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">${borrows[i].book.title}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">${borrows[i].book.author}</h6>
+                  <p class="card-text mb-1" style="font-size:.85rem">
+                    <span class="fw-medium text-muted">Aluno:</span>
+                    <span class="ms-1">${borrows[i].student.name}</span>
+                  </p>
+                  <p class="card-text mb-1" style="font-size:.85rem">
+                    <span class="fw-medium text-muted">Empréstimo:</span>
+                    <span class="ms-1">${borrows[i].createdAt}</span>
+                  </p>
+                  <p class="card-text mb-2" style="font-size:.85rem">
+                    <span class="fw-medium text-muted">Devolução:</span>
+                    <span class="ms-1 fw-bold">${borrows[i].deletedAt}</span>
+                  </p>
+                  <div class="d-flex justify-content-end gap-2">
+                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" data-bs-toggle="modal"
+                      data-bs-target="#returnModal">
+                      Devolver Livro
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        `;
+        document.getElementById("emprestimosRow").innerHTML += templateCard;
+      }
+    }
 
+    async function newBookCard() {
+      const response = await fetch("https://library-a3-production.up.railway.app/borrows", {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+      });
+      if (!response.ok) {
+        alert("Erro ao buscar informações");
+        console.error("Failed to fetch books:", response.statusText);
+        return;
+      }
+      const borrows = await response.json();
+
+      addBookCard(borrows);
+    }
+    newBookCard();
+
+  </script>
+
+  <script src="/scripts/layout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+    crossorigin="anonymous"></script>
+  <script>
+    loadMenu('borrows');
+    loadFooter();
+    verificarAutenticacao();
+  </script>
 </body>
-<div id="footer"></div>
-
-<script src="/scripts/layout.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-<script>
-  loadMenu('borrows');
-  loadFooter();
-  verificarAutenticacao();
-</script>
 
 </html>
