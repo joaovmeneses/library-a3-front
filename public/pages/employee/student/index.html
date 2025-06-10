@@ -80,11 +80,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"></script>
 <script>
     verificarAutenticacao();
     loadMenu('students');
     loadFooter();
     loadStudents();
+
+    $(document).ready(function () {
+        $('#cpf').inputmask('999.999.999-99');
+    });
 
     document.getElementById("studentForm").addEventListener("submit", async function (event) {
         event.preventDefault();
@@ -127,7 +133,7 @@
         }
     });
 
-    
+
     async function loadStudents() {
         try {
             const response = await fetch("https://library-a3-production.up.railway.app/students", {
@@ -138,13 +144,13 @@
                     'Access-Control-Allow-Origin': '*',
                     'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
-                
+
             });
-            
+
             if (!response.ok) {
                 throw new Error("Erro ao buscar alunos: " + response.status);
             }
-            
+
             const alunos = await response.json();
             const listaAlunos = document.getElementById("studentsList");
             listaAlunos.innerHTML = "";
