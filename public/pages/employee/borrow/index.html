@@ -67,8 +67,18 @@
 
   </main>
   <script>
+    function formatDate(dateString) {
+      if (!dateString) return 'No return date';
+      const cleanDate = dateString.split('T')[0];
+      const [ano, mes, dia] = cleanDate.split('-');
+      return `${dia}/${mes}/${ano}`;
+    }
     function addBookCard(borrows) {
       for (let i = 0; i < borrows.length; i++) {
+        let badgeClass = "bg-primary text-light";
+        if (borrows[i].status == "BORROWED") {
+          badgeClass = "bg-warning text-light";
+        }
         const templateCard =
           `
             <div class="col-md-4">
@@ -77,24 +87,26 @@
                   <h5 class="card-title fw-bold">${borrows[i].book.title}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">${borrows[i].book.author}</h6>
                   <p class="card-text mb-1" style="font-size:.85rem">
-                    <span class="fw-medium text-muted">Aluno:</span>
+                    <span class="fw-medium text-muted fw-bold">Aluno:</span>
                     <span class="ms-1">${borrows[i].student.name}</span>
                   </p>
                   <p class="card-text mb-1" style="font-size:.85rem">
-                    <span class="fw-medium text-muted">Empréstimo:</span>
-                    <span class="ms-1">${borrows[i].createdAt}</span>
+                    <span class="fw-medium text-muted fw-bold">Empréstimo:</span>
+                    <span class="ms-1">${formatDate(borrows[i].createdAt)}</span>
                   </p>
                   <p class="card-text mb-2" style="font-size:.85rem">
-                    <span class="fw-medium text-muted">Devolução:</span>
-                    <span class="ms-1 fw-bold">${borrows[i].dateToReturn}</span>
+                    <span class="fw-medium text-muted fw-bold">Data para devolução:</span>
+                    <span class="ms-1">${formatDate(borrows[i].dateToReturn)}</span>
                   </p>
                   <p class="card-text mb-2" style="font-size:.85rem">
-                    <span class="fw-medium text-muted">Status:</span>
-                    <span class="ms-1 fw-bold">${borrows[i].status}</span>
+                    <span class="fw-medium text-muted fw-bold">Status:</span>
+                    <span class="badge ${badgeClass}">${borrows[i].status}</span>
                   </p>
-                    <button onclick="returnBook('${borrows[i].id}')" type="button" class="btn btn-outline-primary btn-sm mt-2 return-button">
-                      Devolver Livro
-                    </button>
+                    <div class="text-end">
+                      <button onclick="returnBook('${borrows[i].id}')" type="button" class="btn btn-outline-primary btn-sm mt-2 return-button">
+                        Devolver Livro
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -116,12 +128,12 @@
           }
         });
       
-      if (!response.ok) {
-        alert("Erro ao buscar informações");
-        console.error("Faile to fetch books: ", reponse.statusText);
-        return;
-      }
-      window.location.reload();
+        if (!response.ok) {
+          alert("Erro ao buscar informações");
+          console.error("Faile to fetch books: ", reponse.statusText);
+          return;
+        }
+        window.location.reload();
       }
     }
 
