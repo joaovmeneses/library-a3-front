@@ -116,11 +116,9 @@
       }
     }
 
-    function returnBook(borrowId) {
-      let text;
+    async function returnBook(borrowId) {
       if (confirm("Devolver livro?") == true) {
-        text = "Livro devolvido!";
-        fetch(`https://library-a3-production.up.railway.app/borrows/${borrowId}/return`, {
+        const response = await fetch(`https://library-a3-production.up.railway.app/borrows/${borrowId}/return`, {
           method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
@@ -128,9 +126,14 @@
             'Access-Control-Allow-Origin': '*',
             'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
-        })
-      } else {
-        text = "Devolução cancelada!";
+        });
+      
+        if (!response.ok) {
+          alert("Erro ao buscar informações");
+          console.error("Faile to fetch books: ", reponse.statusText);
+          return;
+        }
+        window.location.reload();
       }
     }
 
