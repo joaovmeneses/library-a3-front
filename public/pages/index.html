@@ -88,7 +88,7 @@
             localStorage.setItem('token', data.token);
           } else if (data.role === 'EMPLOYEE')
           {
-            window.location.href = '/pages/employee/book';
+            window.location.href = '/pages/employee/borrow';
             localStorage.setItem('token', data.token);
           } else
           {
@@ -100,6 +100,9 @@
         }
         console.log('Login response:', data);
       })
-      .catch(error => console.error('Error fetching books:', error));
+      .catch(error => {
+        console.error('Error during login:', error);
+        alert('Erro ao tentar fazer login. Por favor, tente novamente.');
+      });
   }
 </script>
