@@ -124,28 +124,36 @@
     })
 
     async function loadEmployees() {
-            try {
-                const response = await fetch("https://library-a3-production.up.railway.app/employees", {
-                    method: "GET",
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'Access-Control-Allow-Origin': '*',
-                        'Authorization': 'Bearer ' + localStorage.getItem('token')
-                    },
-                });
-    
-                if (!response.ok) {
-                    throw new Error("Erro ao buscar funcionários: " + response.status);
+        try {
+            const response = await fetch("https://library-a3-production.up.railway.app/employees", {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error("Erro ao buscar funcionários: " + response.status);
+            }
+
+            const funcionarios = await response.json();
+
+            const listaFuncionarios = document.getElementById("employeeList");
+            listaFuncionarios.innerHTML = "";
+
+            function setCategoria(categoria) {
+                switch (categoria) {
+                    case "MANAGER":
+                        return categoria = "Gerente";
+                    case "LIBRARIAN":
+                        return categoria = "Bibliotecário";
                 }
-    
-                const funcionarios = await response.json();
-    
-                const listaFuncionarios = document.getElementById("employeeList");
-                listaFuncionarios.innerHTML = "";
-    
-                funcionarios.forEach(funcionario => {
-                    const cardFuncionario = `
+            }
+            funcionarios.forEach(funcionario => {
+                const cardFuncionario = `
                         <div class="col-md-4 p-4">
                           <div class="card shadow-sm h-100">
                             <div class="card-body">
@@ -153,17 +161,17 @@
                               
                               <p class="card-text mb-1" style="font-size:.85rem">
                                 <span class="fw-medium text-muted">Categoria: </span> 
-                                <span class="ms-1">${funcionario.category}</span>
+                                <span class="ms-1">${setCategoria(funcionario.category)}</span>
                               </p>
                             </div>
                           </div>
                         </div>
                     `;
-                    listaFuncionarios.innerHTML += cardFuncionario;
-    
-                });
-            } catch (error) {
-                console.error("Erro ao carregar funcionários: ", error)
-            }
+                listaFuncionarios.innerHTML += cardFuncionario;
+
+            });
+        } catch (error) {
+            console.error("Erro ao carregar funcionários: ", error)
         }
+    }
 </script>
