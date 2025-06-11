@@ -100,6 +100,9 @@
         }
         console.log('Login response:', data);
       })
-      .catch(error => console.error('Error fetching books:', error));
+      .catch(error => {
+        console.error('Error during login:', error);
+        alert('Erro ao tentar fazer login. Por favor, tente novamente.');
+      });
   }
 </script>
