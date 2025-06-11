@@ -144,11 +144,10 @@
           }
         }
 
-
         function setStatus(status) {
           switch (status) {
             case "BORROWED":
-              return '<span class="badge bg-danger">Emprestado</span>';
+              return '<span class="badge bg-warning">Emprestado</span>';
             case "AVAILABLE":
               return '<span class="badge bg-success">Disponível</span>';
           }
@@ -203,7 +202,7 @@
         });
 
         if (!response.ok) {
-          alert("Erro ao buscar informações");
+          alert("Erro ao deletar livro!");
           console.error("Faile to fetch books: ", response.statusText);
           return;
         }
