@@ -17,7 +17,6 @@
 
     <div class="container py-5">
 
-      <!-- Formulário de Empréstimo -->
       <div class="card mb-4">
         <div class="card-header text-center fw-bold">Registrar Empréstimo</div>
         <div class="card-body">
@@ -54,7 +53,6 @@
         </div>
       </div>
 
-      <!-- Lista de Empréstimos -->
       <div class="card mb-4">
         <div class="card-header text-center fw-bold">Empréstimos</div>
         <div class="card-body">
@@ -137,7 +135,7 @@
         });
 
         if (!response.ok) {
-          alert("Erro ao buscar informações");
+          alert("Erro ao buscar devolver livro!");
           console.error("Faile to fetch books: ", response.statusText);
           return;
         }
@@ -161,7 +159,7 @@
         }
       });
       if (!response.ok) {
-        alert("Erro ao buscar informações");
+        alert("Erro ao realizar empréstimo!");
         console.error("Faile to fetch books: ", response.statusText);
         return;
       }
@@ -179,7 +177,7 @@
         }
       });
       if (!response.ok) {
-        alert("Erro ao buscar informações");
+        alert("Erro ao buscar estudante!");
         console.error("Failed to fetch students: ", response.statusText);
         return;
       }
@@ -201,7 +199,7 @@
         }
       });
       if (!response.ok) {
-        alert("Erro ao buscar informações");
+        alert("Erro ao buscar livro!");
         console.error("Faile to fetch books: ", reponse.statusText);
         return;
       }
@@ -223,7 +221,7 @@
         }
       });
       if (!response.ok) {
-        alert("Erro ao buscar informações");
+        alert("Erro ao realizar empréstimo!");
         console.error("Failed to fetch borrows:", response.statusText);
         return;
       }
