@@ -170,6 +170,16 @@
         }
       }
 
+      
+      function setStatus(status){
+        switch(status){
+          case "BORROWED":
+            return '<span class="badge bg-danger">Emprestado</span>';
+          case "AVAILABLE":
+            return '<span class="badge bg-success">Disponível</span>';
+        }
+      }
+
       livros.forEach(livro => {
         const cardLivro = `
         <div class="col-md-4 p-4">
@@ -186,7 +196,7 @@
               </p>
               <p class="card-text mb-2" style="font-size:.85rem">
                 <span class="fw-medium text-muted">Status:</span>
-                <span class="ms-1 fw-bold">${livro.status}</span>
+                <span class="ms-1 fw-bold">${setStatus(livro.status)}</span>
               </p>
             </div>
           </div>
