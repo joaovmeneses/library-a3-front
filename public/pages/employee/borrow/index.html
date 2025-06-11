@@ -67,6 +67,16 @@
 
   </main>
   <script>
+
+    function validateReturnButton(status, borrowId) {
+      if (status == "BORROWED") {
+        return `<button onclick="returnBook('${borrowId}')" type="button" class="btn btn-outline-primary btn-sm mt-2 return-button">
+          Devolver Livro
+        </button>`
+      }
+      return "<br>"
+    }
+
     function formatDate(dateString) {
       if (!dateString) return 'No return date';
       const cleanDate = dateString.split('T')[0];
@@ -103,9 +113,7 @@
                     <span class="badge ${badgeClass}">${borrows[i].status}</span>
                   </p>
                     <div class="text-end">
-                      <button onclick="returnBook('${borrows[i].id}')" type="button" class="btn btn-outline-primary btn-sm mt-2 return-button">
-                        Devolver Livro
-                      </button>
+                    ${validateReturnButton(borrows[i].status, borrows[i].id)}
                     </div>
                   </div>
                 </div>
@@ -127,7 +135,7 @@
             'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
         });
-      
+
         if (!response.ok) {
           alert("Erro ao buscar informações");
           console.error("Faile to fetch books: ", reponse.statusText);
