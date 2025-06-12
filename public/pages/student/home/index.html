@@ -49,12 +49,10 @@
             if (!borrows || !borrows.length) return;
             for (let i = 0; i < borrows.length; i++) {
                 function setStatus(status) {
-                    switch (status) {
-                        case "BORROWED":
-                            return '<span class="badge bg-warning">Emprestado</span>';
-                        case "AVAILABLE":
-                            return '<span class="badge bg-primary">Disponível</span>';
+                    if (status === "BORROWED") {
+                        return '<span class="badge bg-warning">Emprestado</span>';
                     }
+                    return '<span class="badge bg-primary">Devolvido</span>';
                 }
                 const templateCard =
                     `<div class="col-md-4 p-4">
