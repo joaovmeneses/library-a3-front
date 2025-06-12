@@ -19,7 +19,7 @@
 
             <div class="card mb-4">
                 <div class="card">
-                    <div class="card-header text-center fw-bold">My Books</div>
+                    <div class="card-header text-center fw-bold">Meus empréstimos</div>
                     <div class="card-body">
                         <div class="row g-3" id="booksRow">
 
@@ -29,7 +29,24 @@
     </main>
     </div>
     <script>
+        function setCategoria(categoria) {
+            switch (categoria) {
+                case "ACAO":
+                    return categoria = "Ação";
+                case "TERROR":
+                    return categoria = "Terror";
+                case "AVENTURA":
+                    return categoria = "Aventura";
+            }
+        }
+        function formatDate(dateString) {
+            if (!dateString) return 'No return date';
+            const cleanDate = dateString.split('T')[0];
+            const [ano, mes, dia] = cleanDate.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
         function addBookCard(borrows) {
+            if (!borrows || !borrows.length) return;
             for (let i = 0; i < borrows.length; i++) {
                 function setStatus(status) {
                     switch (status) {
@@ -45,15 +62,18 @@
                   <div class="card-body">
                     <h5 class="card-title fw-bold">${borrows[i].book.title}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">${borrows[i].book.author}</h6>
-                    <p class="card-text mb-1" style="font-size:.75rem"><span class="fw-medium text-muted">Category:</span>
-                      <span id="bookStatus" class="ms-1 small">${borrows[i].book.category}</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span class="fw-medium text-muted">Status:</span>
+                    <p class="card-text mb-1" style="font-size:.75rem fw-bold"><span class="fw-medium text-muted">Categoria:</span>
+                      <span id="bookStatus" class="ms-1">${setCategoria(borrows[i].book.category)}</span></p>
+                    <p class="card-text mb-2" style="font-size:.85rem"><span class="fw-medium text-muted fw-bold">Status:</span>
                       <span id="bookStatus" class="ms-1">${setStatus(borrows[i].book.status)}</span></p>
-                    <p class="card-text mb-1" style="font-size:.85rem"><span
-                        class="fw-medium text-muted">Entrada:</span> <span id="entryDate" class="ms-1">${borrows[i].book.createdAt}</span>
+                    <p class="card-text mb-2" style="font-size:.85rem"><span
+                        class="fw-medium text-muted fw-bold">Data de empréstimo</span> <span id="entryDate" class="ms-1">${formatDate(borrows[i].book.createdAt)}</span>
                     </p>
-                    <p class="card-text mb-0" style="font-size:.85rem"><span class="fw-medium text-muted">Saída:</span>
-                      <span id="exitDate" class="ms-1">${borrows[i].book.deletedAt}</span></p>
+                    <p class="card-text mb-2" style="font-size:.85rem">
+                        <span class="fw-medium text-muted fw-bold">Data para devolução:</span>
+                            <span id="exitDate" class="ms-1">${formatDate(borrows[i].dateToReturn)}
+                            </span>
+                    </p>
                   </div>
                 </div>
               </div>`;

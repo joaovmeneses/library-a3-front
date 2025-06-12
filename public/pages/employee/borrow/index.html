@@ -83,9 +83,9 @@
     }
     function addBookCard(borrows) {
       for (let i = 0; i < borrows.length; i++) {
-        let badgeClass = "bg-primary text-light";
+        let badgeClass = "badge bg-primary";
         if (borrows[i].status == "BORROWED") {
-          badgeClass = "bg-warning text-light";
+          badgeClass = "badge bg-warning";
         }
         const templateCard =
           `
