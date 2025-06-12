@@ -84,8 +84,10 @@
     function addBookCard(borrows) {
       for (let i = 0; i < borrows.length; i++) {
         let badgeClass = "badge bg-primary";
+        let statusText = "Disponível";
         if (borrows[i].status == "BORROWED") {
           badgeClass = "badge bg-warning";
+          let statusText = "Emprestado";
         }
         const templateCard =
           `
@@ -108,7 +110,7 @@
                   </p>
                   <p class="card-text mb-2" style="font-size:.85rem">
                     <span class="fw-medium text-muted fw-bold">Status:</span>
-                    <span class="badge ${badgeClass}">${borrows[i].status}</span>
+                    <span class="badge ${badgeClass}">${statusText}</span>
                   </p>
                     <div class="text-end">
                     ${validateReturnButton(borrows[i].status, borrows[i].id)}
