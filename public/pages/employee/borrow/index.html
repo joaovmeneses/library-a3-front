@@ -84,10 +84,10 @@
     function addBookCard(borrows) {
       for (let i = 0; i < borrows.length; i++) {
         let badgeClass = "badge bg-primary";
-        let statusText = "Disponível";
+        let statusText = "Devolvido";
         if (borrows[i].status == "BORROWED") {
           badgeClass = "badge bg-warning";
-          let statusText = "Emprestado";
+          statusText = "Emprestado";
         }
         const templateCard =
           `
