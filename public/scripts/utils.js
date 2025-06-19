@@ -52,3 +52,5 @@ function verificarAutenticacao() {
     window.location.href = "/pages";
   }
 }
+
+const baseUrl = "https://library-a3-production.up.railway.app";

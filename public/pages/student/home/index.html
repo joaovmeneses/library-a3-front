@@ -28,6 +28,7 @@
                 </div>
     </main>
     </div>
+    <script src="/scripts/utils.js"></script>
     <script>
         function setCategoria(categoria) {
             switch (categoria) {
@@ -81,7 +82,7 @@
 
 
         async function newStudentCard() {
-            const response = await fetch("https://library-a3-production.up.railway.app/borrows", {
+            const response = await fetch(`${baseUrl}/borrows`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +114,6 @@
 </html>
 
 
-<script src="/scripts/utils.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>

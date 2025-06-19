@@ -64,6 +64,7 @@
       <div id="footer"></div>
 
   </main>
+  <script src="/scripts/utils.js"></script>
   <script>
 
     function validateReturnButton(status, borrowId) {
@@ -126,7 +127,7 @@
 
     async function returnBook(borrowId) {
       if (confirm("Devolver livro?") == true) {
-        const response = await fetch(`https://library-a3-production.up.railway.app/borrows/${borrowId}/return`, {
+        const response = await fetch(`${baseUrl}/borrows/${borrowId}/return`, {
           method: "PATCH",
           headers: {
             'Content-Type': 'application/json',
@@ -146,7 +147,7 @@
     }
 
     async function postBorrows() {
-      const response = await fetch("https://library-a3-production.up.railway.app/borrows", {
+      const response = await fetch(`${baseUrl}/borrows`, {
         method: "POST",
         body: JSON.stringify({
           bookId: document.getElementById("selectLivro").value,
@@ -169,7 +170,7 @@
     }
 
     async function getStudents() {
-      const response = await fetch("https://library-a3-production.up.railway.app/students", {
+      const response = await fetch(`${baseUrl}/students`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -191,7 +192,7 @@
     }
 
     async function getBooks() {
-      const response = await fetch("https://library-a3-production.up.railway.app/books/available", {
+      const response = await fetch(`${baseUrl}/books/available`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -213,7 +214,7 @@
     }
 
     async function getBorrows() {
-      const response = await fetch("https://library-a3-production.up.railway.app/borrows", {
+      const response = await fetch(`${baseUrl}/borrows`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -237,7 +238,6 @@
 
   </script>
 
-  <script src="/scripts/utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
     crossorigin="anonymous"></script>
